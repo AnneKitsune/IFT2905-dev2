@@ -1,6 +1,6 @@
 package com.ift2905.ift2905dev2;
 
-//
+/////pour test////////////
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
