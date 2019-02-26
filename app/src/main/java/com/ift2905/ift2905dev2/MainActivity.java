@@ -1,6 +1,5 @@
 package com.ift2905.ift2905dev2;
 
-/////pour test////////////
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     static int screen_width, screen_height;
     static int btn_size;
+    static int i=0;
 
 
     @Override
@@ -34,32 +34,41 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener btn_listener = new View.OnClickListener() {
         public void onClick(View v) {
 
-            btn.setBackgroundColor(Color.WHITE);
-            btn.setText("");
+            if (i == 0) {
+                btn.setBackgroundColor(Color.WHITE);
+                // by using removeView, we need to clear the screen, maybe......
+                btn.setText("");
+            }
 
-            Handler timer = new Handler();
-            timer.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    btn_size = getButtonSize();
-                    System.out.println(btn_size);
 
-                    btn.getLayoutParams().width = btn_size;
-                    btn.getLayoutParams().height = btn_size;
-                    btn.setWidth(btn_size);
-                    btn.setHeight(btn_size);
+            btn_size = getButtonSize();
+            System.out.println(btn_size);
 
-                    // je ne sais pas exactement comment utiliser setX et setY.
-                    // pour tester, j'ai mis 0 pour x, y. mais la location de bouton change tout le temps dans la secteur haut gauche..
-                    int x = 0;//screen_width - btn_size;
-                    int y = 0;//screen_height - btn_size ;
-                    btn.setX(x); btn.setY(y);
 
-                    btn.setBackgroundColor(Color.RED);
-                    btn.setText("button");
 
-                }
-            }, 2000);
+            btn.getLayoutParams().width = btn_size;
+            btn.getLayoutParams().height = btn_size;
+            btn.setWidth(btn_size);
+            btn.setHeight(btn_size);
+
+
+            int x = screen_width /3;
+            int y = screen_height /3;
+            btn.setX(x); btn.setY(y);
+
+
+            btn.setBackgroundColor(Color.RED);
+            btn.setText("button");
+
+
+
+            if (i == 5) {      // quand i == 20, on doit calculer le resultat et afficher le resultat dans autre ecran.
+                // pour tester, j'ai mis 5. sinon, je dois cliquer 20 fois.
+                btn.setText("fini");
+            }
+
+            i++;
+            System.out.println(i);
 
 
         }
