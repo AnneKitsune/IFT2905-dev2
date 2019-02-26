@@ -1,7 +1,8 @@
 package com.ift2905.ift2905dev2;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.os.Handler;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -60,11 +61,14 @@ public class MainActivity extends AppCompatActivity {
             btn.setBackgroundColor(Color.RED);
             btn.setText("button");
 
+            //System.out.println("X : " + btn.getRawX());
+            //System.out.println("Y : " + btn.getRawY());
+
 
 
             if (i == 5) {      // quand i == 20, on doit calculer le resultat et afficher le resultat dans autre ecran.
                 // pour tester, j'ai mis 5. sinon, je dois cliquer 20 fois.
-                btn.setText("fini");
+                openActivity2();
             }
 
             i++;
@@ -98,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public void openActivity2() {
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+    }
 
 }
