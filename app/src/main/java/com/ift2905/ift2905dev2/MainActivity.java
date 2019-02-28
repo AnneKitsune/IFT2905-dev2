@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn = findViewById(R.id.button);
-        btn.setOnClickListener(btn_listener);
+        btn.setOnTouchListener(btn_listener);
     }
 
 
 
-    View.OnClickListener btn_listener = new View.OnClickListener() {
-        public void onClick(View v) {
+    View.OnTouchListener btn_listener = new View.OnTouchListener() {
+        public boolean onTouch(View v, MotionEvent event) {
 
             if (i == 0) {
                 btn.setBackgroundColor(Color.WHITE);
@@ -41,22 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 btn.setText("");
             }
 
-
             btn_size = getButtonSize();
-            System.out.println(btn_size);
-
-
-
             btn.getLayoutParams().width = btn_size;
             btn.getLayoutParams().height = btn_size;
             btn.setWidth(btn_size);
             btn.setHeight(btn_size);
 
-
             int x = screen_width /3;
-            int y = screen_height /3;
+            int y = screen_height /3;   // pour bien mettre l'image de bouton, on doit
+                                        // bien specifier x et y. maintenant, cest pas parfait.
             btn.setX(x); btn.setY(y);
-
 
             btn.setBackgroundColor(Color.RED);
             btn.setText("button");
@@ -65,27 +61,45 @@ public class MainActivity extends AppCompatActivity {
             //System.out.println("Y : " + btn.getRawY());
 
 
-
             if (i == 5) {      // quand i == 20, on doit calculer le resultat et afficher le resultat dans autre ecran.
                 // pour tester, j'ai mis 5. sinon, je dois cliquer 20 fois.
                 openActivity2();
             }
 
-            i++;
+
             System.out.println(i);
 
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    System.out.println("---------------------------");
+                    Log.i("TAG", "touched down");
+                    i++;
+                    break;
 
+                case MotionEvent.ACTION_UP:
+                    Log.i("TAG", "touched up");
+                    float valueX = event.getRawX();
+                    float valueY = event.getRawY();
+                    System.out.println("X : " + valueX + ", Y : " + valueY);
+
+                    float[] locationX = new float[20];
+                    float[] locationY = new float[20];
+                    locationX[i] = valueX;
+                    locationY[i] = valueY;
+                    break;
+            }
+
+            return true;
         }
-
     };
+
+
 
     private int getButtonSize(){
         DisplayMetrics dm = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(dm);
         screen_width = dm.widthPixels;
         screen_height = dm.heightPixels;
-        //System.out.println("screen width = " + width);
-        //System.out.println("screen height = " + height);
 
         int screen_min = getMin(screen_width, screen_height);
         btn_size = (int)(Math.random() * (screen_min/2 - screen_min/25 + 1)) + screen_min/25;
