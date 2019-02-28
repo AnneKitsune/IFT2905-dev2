@@ -37,44 +37,45 @@ public class MainActivity extends AppCompatActivity {
     View.OnTouchListener btn_listener = new View.OnTouchListener() {
         public boolean onTouch(View v, MotionEvent event) {
 
-            if (i == 0) {
-                btn.setBackgroundColor(Color.WHITE);
-                // by using removeView, we need to clear the screen, maybe......
-                btn.setText("");
-            }
 
-            btn_size = getButtonSize();
-            btn.getLayoutParams().width = btn_size;
-            btn.getLayoutParams().height = btn_size;
-            btn.setWidth(btn_size);
-            btn.setHeight(btn_size);
-
-            int x = screen_width /3;
-            int y = screen_height /3;   // pour bien mettre l'image de bouton, on doit
-                                        // bien specifier x et y. maintenant, cest pas parfait.
-            btn.setX(x); btn.setY(y);
-
-            btn.setBackgroundColor(Color.RED);
-            btn.setText("button");
-
-            //System.out.println("X : " + btn.getRawX());
-            //System.out.println("Y : " + btn.getRawY());
-
-
-            if (i == 5) {      // quand i == 20, on doit calculer le resultat et afficher le resultat dans autre ecran.
-                // pour tester, j'ai mis 5. sinon, je dois cliquer 20 fois.
-                openActivity2();
-            }
-
-
-            System.out.println(i);
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     System.out.println("---------------------------");
                     Log.i("TAG", "touched down");
+                    if (i == 0) {
+                        btn.setBackgroundColor(Color.WHITE);
+                        // by using removeView, we need to clear the screen, maybe......
+                        btn.setText("");
+                    }
+
+                    btn_size = getButtonSize();
+                    btn.getLayoutParams().width = btn_size;
+                    btn.getLayoutParams().height = btn_size;
+                    btn.setWidth(btn_size);
+                    btn.setHeight(btn_size);
+
+                    int x = screen_width /3;
+                    int y = screen_height /3;   // pour bien mettre l'image de bouton, on doit
+                    // bien specifier x et y. maintenant, cest pas parfait.
+                    btn.setX(x); btn.setY(y);
+
+                    btn.setBackgroundColor(Color.RED);
+                    btn.setText("button");
+
+                    //System.out.println("X : " + btn.getRawX());
+                    //System.out.println("Y : " + btn.getRawY());
+
+
+                    if (i == 5) {      // quand i == 20, on doit calculer le resultat et afficher le resultat dans autre ecran.
+                        // pour tester, j'ai mis 5. sinon, je dois cliquer 20 fois.
+                        openActivity2();
+                    }
+
+
+                    System.out.println(i);
                     i++;
-                    break;
+                    return true;
 
                 case MotionEvent.ACTION_UP:
                     Log.i("TAG", "touched up");
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     float[] locationY = new float[20];
                     locationX[i] = valueX;
                     locationY[i] = valueY;
-                    break;
+                    return true;
             }
 
             return true;
