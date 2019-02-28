@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">IFT2905Dev2</string>
+    <string name="start">Appuyez pour commencer.</string>
+    <string name="test_click">Cliquez ici!</string>
 </resources>

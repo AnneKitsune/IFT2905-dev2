@@ -1,13 +1,15 @@
-package com.ift2905.ift2905dev2;
+package com.ift2905.ift2905dev2.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Activity2 extends AppCompatActivity {
+import com.ift2905.ift2905dev2.R;
+
+public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
+        setContentView(R.layout.result_activity);
     }
 }

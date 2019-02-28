@@ -2,21 +2,28 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bg_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.TestActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/start_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/colorAccent"
-        android:text="cliquez pour commencer"
+        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:background="@color/test_button"
+        android:text="@string/test_click" />
 
 
 </android.support.constraint.ConstraintLayout>
