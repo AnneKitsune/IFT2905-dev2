@@ -115,8 +115,8 @@ public class TestActivity extends AppCompatActivity {
 
     private int randomButtonSize() {
         int screen_min = Math.min(screen_width, screen_height);
-        int size = (int)(Math.random() * (screen_min * Accessor.floatFromConf(this, R.dimen.button_size_max_ratio) - screen_min * Accessor.floatFromConf(this, R.dimen.button_size_min_ratio))
-                + screen_min * Accessor.floatFromConf(this, R.dimen.button_size_min_ratio));
+        int size = (int)((Math.random() * (screen_min * Accessor.floatFromConf(this, R.dimen.button_size_max_ratio) - screen_min * Accessor.floatFromConf(this, R.dimen.button_size_min_ratio))
+                + screen_min * Accessor.floatFromConf(this, R.dimen.button_size_min_ratio)));
         return size;
     }
 

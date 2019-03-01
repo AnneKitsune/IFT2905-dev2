@@ -34,11 +34,18 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
 
+        <Button
+            android:id="@+id/retry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/retry" />
+
         <ListView
             android:id="@+id/list_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteY="291dp" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

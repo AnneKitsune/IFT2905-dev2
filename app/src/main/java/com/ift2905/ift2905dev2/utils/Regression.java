@@ -1,10 +1,14 @@
 package com.ift2905.ift2905dev2.utils;
 
+import android.content.Context;
+
+import com.ift2905.ift2905dev2.R;
 import com.ift2905.ift2905dev2.model.RegressionData;
 import com.ift2905.ift2905dev2.model.TestData;
 
 public final class Regression {
-    public static RegressionData regression(TestData[] data) {
+    public static RegressionData regression(Context ctx, TestData[] data) {
+        int n = ctx.getResources().getInteger(R.integer.tries);
         float x = 0;
         for (TestData d : data) {
             x += d.difficulty();
@@ -30,6 +34,12 @@ public final class Regression {
             xy += d.difficulty() * d.getDeltaTime();
         }
 
-        return new RegressionData(0,0,0);
+        float b = (n*xy-x*y) / (n*xx - x * x);
+        float ninv = 1 / n;
+        float a = (ninv * y - b * ninv * x);
+
+        float r = (n*xy - x*y) / (float)(Math.sqrt((n*xx - x*x) * (n*yy - y * y)));
+
+        return new RegressionData(a,b,r);
     }
 }

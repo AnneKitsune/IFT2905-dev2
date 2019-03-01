@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="button_size_max_ratio" format="float" type="dimen">0.004</item>
-    <item name="button_size_min_ratio" format="float" type="dimen">0.5</item>
+    <item name="button_size_max_ratio" format="float" type="dimen">0.5</item>
+    <item name="button_size_min_ratio" format="float" type="dimen">0.05</item>
     <integer name="tries">5</integer>
 </resources>
