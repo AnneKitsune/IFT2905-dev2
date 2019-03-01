@@ -86,6 +86,7 @@ public class TestActivity extends AppCompatActivity {
                     //float y = event.getRawY();
 
                     if (currentTest >= getResources().getInteger(R.integer.tries) - 1) {
+                        testButton.setVisibility(View.INVISIBLE);
                         openResultActivity();
                     }
                     currentTest++;
