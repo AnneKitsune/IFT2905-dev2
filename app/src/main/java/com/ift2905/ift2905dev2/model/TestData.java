@@ -26,6 +26,14 @@ public class TestData {
                 '}';
     }
 
+    public float getDistance() {
+        return (float)Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+
+    public float difficulty() {
+        return (float)(Math.log(getDistance() / buttonSize + 1) / Math.log(2));
+    }
+
     public int getTryNumber() {
         return tryNumber;
     }

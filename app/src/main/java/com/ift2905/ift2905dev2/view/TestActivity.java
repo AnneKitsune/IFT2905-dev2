@@ -100,7 +100,7 @@ public class TestActivity extends AppCompatActivity {
     };
 
     private TestData genTestData() {
-        float dt = (int)((System.currentTimeMillis() - lastClickTime) / 1000f);
+        float dt = (System.currentTimeMillis() - lastClickTime) / 1000f;
         return new TestData(currentTest, lastX - testButton.getX(), lastY - testButton.getY(), dt, currentButtonSize);
     }
 
@@ -133,8 +133,8 @@ public class TestActivity extends AppCompatActivity {
     private void randomizeButtonPosition() {
         int margin = currentButtonSize;
 
-        int x = (int)(Math.random() * (screen_width - margin));
-        int y = (int)(Math.random() * (screen_height - margin));
+        int x = (int)(Math.random() * (screen_width - margin*2));
+        int y = (int)(Math.random() * (screen_height - margin*2));
 
         testButton.setX(x);
         testButton.setY(y);
