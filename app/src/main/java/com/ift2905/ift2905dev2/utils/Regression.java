@@ -30,6 +30,6 @@ public final class Regression {
             xy += d.difficulty() * d.getDeltaTime();
         }
 
-        
+        return new RegressionData(0,0,0);
     }
 }
