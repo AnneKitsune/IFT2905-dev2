@@ -101,7 +101,7 @@ public class TestActivity extends AppCompatActivity {
     };
 
     private TestData genTestData() {
-        float dt = (System.currentTimeMillis() - lastClickTime) / 1000f;
+        long dt = (System.currentTimeMillis() - lastClickTime);
         return new TestData(currentTest, lastX - testButton.getX(), lastY - testButton.getY(), dt, currentButtonSize);
     }
 

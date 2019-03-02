@@ -42,7 +42,7 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<String> ls = new ArrayList<String>();
 
         for (TestData result : TestActivity.results) {
-            ls.add("Temps: "+result.getDeltaTime()+" ID: "+result.difficulty());
+            ls.add("Temps: "+result.getDeltaTime()+"ms ID: "+result.difficulty());
         }
 
 

@@ -35,7 +35,7 @@ public final class Regression {
         }
 
         float b = (n*xy-x*y) / (n*xx - x * x);
-        float ninv = 1 / n;
+        float ninv = 1f / n;
         float a = (ninv * y - b * ninv * x);
 
         float r = (n*xy - x*y) / (float)(Math.sqrt((n*xx - x*x) * (n*yy - y * y)));

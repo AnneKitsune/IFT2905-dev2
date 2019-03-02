@@ -4,10 +4,10 @@ public class TestData {
     int tryNumber;
     float deltaX;
     float deltaY;
-    float deltaTime;
+    long deltaTime;
     float buttonSize;
 
-    public TestData(int tryNumber, float deltaX, float deltaY, float deltaTime, float buttonSize) {
+    public TestData(int tryNumber, float deltaX, float deltaY, long deltaTime, float buttonSize) {
         this.tryNumber = tryNumber;
         this.deltaX = deltaX;
         this.deltaY = deltaY;
@@ -58,11 +58,15 @@ public class TestData {
         this.deltaY = deltaY;
     }
 
-    public float getDeltaTime() {
+    public long getDeltaTime() {
         return deltaTime;
     }
 
-    public void setDeltaTime(float deltaTime) {
+    public float getDeltaTimeSeconds() {
+        return deltaTime / 1000f;
+    }
+
+    public void setDeltaTime(long deltaTime) {
         this.deltaTime = deltaTime;
     }
 
